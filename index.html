@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche</title>
+    <link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet'>
+    <link rel="shortcut icon" href="assets/logo/porschelogo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+            background-color: #E8EFFA;
+            margin: 0;
+            padding: 0;
+            font-family: 'Kanit';
+            scroll-behavior: smooth;
+        }
+        header{
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            position: absolute;
+            background-color: transparent;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        header img{
+            width: 200px;
+        }
+        .logo{
+            font-size: 32px;
+            color: #1f0e35;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        nav a {
+            position: relative;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 40px
+        }
+
+        nav a::before{
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: .5s;
+        }
+
+        nav a:hover::before{
+            width: 100%;
+        }
+        #container-header{
+            width: 100%;
+            min-height: 300px;
+            color: #1f0e35;
+        }
+        #container-header #container-video{
+            width: 100%;
+            min-height: 1000px;
+        }
+        #container-video video{
+            width: 100%;
+        }
+        #container-video #text{
+            width: 500px;
+            height: 500px;
+            font-size: 2.75em;
+            line-height: 1.15em;
+            position: absolute;
+            z-index: 2;
+            top: 20%;
+            right: 5%;
+            text-align: right;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .button{
+            padding: 10px 40px;
+            text-decoration: none;
+            font-size: 1.25em;
+            border: 3px solid #fff;
+            color: #fff;
+            border-radius: 5px;
+            background-color: rgba(194, 194, 194, 0.345);
+            position: absolute;
+            z-index: 2;
+            top: 90%;
+            right: 5%;
+            transition: .5s;
+        }
+        .button:hover{
+            background-color: rgba(255, 255, 255, 0.345);
+            box-shadow: 0 0 10px #fff;;
+            transition: .5s;
+        }
+        main{
+            width: 100%;
+            min-height: 500px;
+        }
+        main #cards-container{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 90px;
+            transition: .5s;
+        }
+        #cards-container #card{
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.521);
+        }
+        #card #card-background01{
+            width: 100%;
+            height: 100%;
+            background: url(assets/img/produtos/carerat.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        #card #card-background02{
+            width: 100%;
+            height: 100%;
+            background: url(assets/img/produtos/918spyder.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        #card #card-background03{
+            width: 100%;
+            height: 100%;
+            background: url(assets/img/produtos/911hoonigan.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: .5s;
+        }
+        #card-background01:hover, #card-background02:hover, #card-background03:hover{
+            transform: scale(1.15);
+        }
+        #card #text-container{
+            min-width: 1px;
+            min-height: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            color: #fff;
+            top: 148%
+        }
+        #text-container #text{
+            min-width: 1px;
+            min-height: 1px;
+            margin-left: 15px;
+            font-size: 1.5em;
+        }
+        #text i{
+            transform: translateY(3px);
+            transition: .5s
+        }
+        #card:hover i{
+            margin-left: 10px;
+            transition: .5s;
+            background-color: rgba(194, 194, 194, 0.345);;
+        }
+        main #find-container{
+            width: 100%;
+            height: 700px;
+            margin-top: 90px;
+            display: flex;
+            background-color: #FFFFFF;
+        }
+        #find-container #find-text{
+            width: 50%;
+            height: 700px;
+        }
+        #find-text #title{
+            width: 400px;
+            min-height: 1px;
+            margin-left: 250px;
+            margin-top: 200px;
+            font-size: 2.15em;
+            line-height: 1.2em;
+            font-weight: bold;
+        }
+        #find-text #subtitle{
+            width: 500px;
+            min-height: 1px;
+            color: #010205;
+            font-size: 0.95em;
+            margin-left: 250px;
+            margin-top: 20px;
+        }
+        #find-text #subtitle2{
+            width: 500px;
+            min-height: 1px;
+            margin-left: 250px;
+            margin-top: 15px;
+            font-size: 1.25em;
+        }
+        #input-single {
+          width: 50%;
+          margin-left: 250px;
+          margin-top: 20px;
+          position: relative;
+        }
+        #input-single i{
+            transform: translateY(2px);
+        }
+
+        #input-single label {
+          font-size: 1.2em;
+          position: absolute;
+          left: 0;
+          bottom: 5px;
+          color: #000;
+          transition: 0.4s ease-in-out;
+        }
+
+        #input-single input {
+          width: 100%;
+          padding: 5px;
+          border: 0;
+          border-bottom: 2px solid rgb(200, 200, 200);
+          outline: none;
+          font-size: 1.2em;
+        }
+
+        #input-single input:focus,
+        #input-single input:valid {
+          border-bottom: 2px solid #6351CE;
+          transition: 0.4s;
+          color: #6351CE;
+        }
+
+        #input-single input:focus~label,
+        #input-single input:valid~label {
+          transform: translateY(-25px);
+          font-size: 1em;
+          color: #6351CE;
+          font-weight: bold;
+        }
+        #find-container #find-img{
+            width: 50%;
+            height: 700px;
+        }
+        #find-img img{
+            width: 100%;
+        }
+        footer{
+            width: 100%;
+            height: 200px;
+            background-color: #121813;
+            color: #fff;
+        }
+        footer #footer-logo{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #footer-logo img{
+            width: 100px;
+        }
+        footer #networks-container{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #networks-container #networks{
+            width: 200px;
+            height: 75px;
+            text-align: center;
+        }
+        #networks #title{
+            width: 200px;
+            height: 25px;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+        #networks #blocks{
+            width: 200px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5em;
+        }
+        #blocks a{
+            text-decoration: none;
+            color: #fff;
+        }
+        footer #copyright {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15em;
+            background-color: #161C27;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container-header">
+        <header>
+            <a href="index.html" class="logo"><img src="assets/logo/logowhite.png"></a>
+            <nav>
+                <a href="#">Produtos</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+                <a href="#">Suporte</a>
+            </nav>
+        </header>
+       <div id="container-video">
+            <video src="assets/video/4K HD _ ULTIMATE Porsche GT4 RS render !!.mp4" autoplay muted loop></video>
+            <div id="text">
+                A PERFEIÇÃO NUNCA É O COMEÇO
+            </div>
+            <div href="#" class="button">Porsche GT3 RS</div>
+       </div> 
+    </div>
+    <main>
+        <div id="cards-container">
+            <a href="#">
+                <div id="card">
+                    <div id="card-background01"></div>
+                    <div id="text-container">
+                        <div id="text">Porsche Carrera 911T<i class='bx bx-chevron-right'></i></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id="card">
+                    <div id="card-background02"></div>
+                    <div id="text-container">
+                        <div id="text">Porsche 918 Spyder<i class='bx bx-chevron-right'></i></div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div id="card">
+                    <div id="card-background03"></div>
+                    <div id="text-container">
+                        <div id="text">Porsche 911 1991 - Hoonigan Edition<i class='bx bx-chevron-right'></i></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="find-container">
+            <div id="find-text">
+                <div id="title">Encontre seu Porsche novo ou seminovo.</div>
+                <div id="subtitle">Ficou mais fácil encontrar o Porsche de seus sonhos. Digite sua localização e navegue pelas melhores ofertas de carros disponíveis perto de você.</div>
+                <div id="subtitle2">Insira um local para busca</div>
+                <div id="input-single">
+                    <input required type="text" name="cep" id="cep">
+                    <label for="cep"><i class='bx bx-search-alt'></i> Digite sua cidade ou o Cep</label>
+                    </div>
+                </div>
+            <div id="find-img">
+                <img src="assets/img/background/findporsche.png">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-logo"><img src="assets/logo/porschelogo.png"></div>
+        <div id="networks-container">
+            <div id="networks">
+                <div id="title">Redes Sociais</div>
+                <div id="blocks">
+                    <a href="#"><i class='bx bxl-instagram-alt' ></i></a><a href="#"><i class='bx bxl-facebook-square' ></i></a><a href="#"><i class='bx bxl-youtube' ></i></a><a href="#"><i class='bx bxl-twitter'></i></a><a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            ©2024 Copyright: dann.ksz
+        </div>
+    </footer>
+</body>
+</html>
